@@ -39,6 +39,21 @@ PLANS: dict[str, NumberPlan] = {
     "FR": NumberPlan("FR", "33", (9,), trunk_prefix="0"),
     "AU": NumberPlan("AU", "61", (9,), trunk_prefix="0"),
     "IN": NumberPlan("IN", "91", (10,), trunk_prefix="0"),
+    # 9 digits for fixed lines under a 2-digit area code (e.g. Tokyo's 03),
+    # 10 for mobile numbers (which carry a 3-digit 0[789]0 prefix).
+    "JP": NumberPlan("JP", "81", (9, 10), trunk_prefix="0"),
+    # 10 for fixed lines (2-digit area code + 8-digit number), 11 for
+    # mobile (2-digit area code + 9-digit number, the extra digit being
+    # the mandatory leading "9" mobiles have carried since 2012-2016).
+    "BR": NumberPlan("BR", "55", (10, 11), trunk_prefix="0"),
+    # Since the 2019 renumbering, all national numbers are dialed as a
+    # flat 10 digits (2-3 digit area code + subscriber number) with no
+    # trunk prefix and no "1" before mobile numbers.
+    "MX": NumberPlan("MX", "52", (10,)),
+    "NL": NumberPlan("NL", "31", (9,), trunk_prefix="0"),
+    # Spain never adopted a trunk prefix -- even local calls dial the
+    # full 9-digit number.
+    "ES": NumberPlan("ES", "34", (9,)),
 }
 
 # Longest country code first, so "+1" doesn't shadow a hypothetical

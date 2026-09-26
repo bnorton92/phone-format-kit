@@ -74,7 +74,7 @@ with open("raw_numbers.txt") as src:
 
 ## Supported regions
 
-US, CA, GB, DE, FR, AU, IN -- see `phonefmt.core.PLANS`. This is a
+US, CA, GB, DE, FR, AU, IN, JP, BR, MX, NL, ES -- see `phonefmt.core.PLANS`. This is a
 hand-picked list, not a full numbering plan database; adding a region
 means adding an entry to `PLANS` plus a test fixture that shows a real
 example number.
